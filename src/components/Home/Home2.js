@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/myImage.png";
+import myImg from "../../Assets/file.png";
 import Tilt from "react-parallax-tilt";
+import resumeData from "../../data/ResumeData";
+import link from '../../data/links'
+import highlightText from "../HighlighetedText";
 import {
   AiFillGithub,
   AiFillInstagram,
@@ -9,6 +12,8 @@ import {
 import {FaFacebook, FaLinkedinIn} from "react-icons/fa";
 
 function Home2() {
+  const { introduction, styleText } = resumeData[0];
+  const {linkedIn, github, facebook, instagram} = link[0]
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -18,13 +23,9 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-
-              Hello! I’m <span className="purple">Karunairasa Kishobigan</span> ,<br/>
-              a final-year <strong>Computer Science and Technology</strong> student at Uva Wellassa University,<br/><span className="purple"> specializing in backend development,
-              full-stack solutions, and data-driven projects.</span><br/> With a strong foundation in <span className="purple">MERN</span> stack and additional
-              expertise in <span className="purple">Python, Java, PHP, R, C++, C</span> and statistical analysis, I’m passionate about building dynamic, efficient, and scalable applications.
-              I’m currently open to internship opportunities where I can contribute to innovative projects and refine my technical skills.
-              Connect with me on LinkedIn or GitHub to learn more about my work!
+              {
+                highlightText(introduction, styleText)
+              }
             </p>
           </Col>
           <Col md={4} className="myAvtar">
@@ -49,7 +50,7 @@ function Home2() {
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/kishobigan"
+                  href={github}
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -59,7 +60,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.facebook.com/profile.php?id=100010150750167&mibextid=ZbWKwL"
+                  href={facebook}
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -69,7 +70,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.linkedin.com/in/kishobigan/"
+                  href={linkedIn}
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -79,7 +80,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/kishobigan/profilecard/?igsh=NjFnb2Fwbm8zeGxm"
+                  href={instagram}
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
